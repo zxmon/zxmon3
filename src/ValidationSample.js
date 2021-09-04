@@ -20,7 +20,7 @@ handleButtonClick = () => {
     validated: this.state.password === '0000'
   });
   this.input.focus();
-  
+
 }
 
 render() {
@@ -36,6 +36,7 @@ render() {
         />
         <button onClick={this.handleButtonClick}>검증하기</button>
       </div>
+      
     );
   }
 }
