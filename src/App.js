@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import LifeCycleSample from './LifeCycleSample';
 import ErrorBoundary from './ErrorBoundary';
@@ -30,3 +31,22 @@ class App extends Component {
 }
  
 export default App;
+=======
+import { Route } from 'react-router-dom';
+import Menu from './components/Menu';
+import RedPage from './pages/RedPage';
+import BluePage from './pages/BluePage';
+
+const App = () => {
+  return (
+    <div>
+      <Menu />
+      <hr />
+      <Route path="/red" component={RedPage} />
+      <Route path="/blue" component={BluePage} />
+    </div>
+  );
+};
+
+export default App;
+>>>>>>> a83f6423f5bc738bca7694e36d5134681e513810
