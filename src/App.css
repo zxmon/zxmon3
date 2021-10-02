@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 .react {
-
   background: aqua;
-  color:black;
-  font-size:48px;
-  font-weight:bold;
+  color: black;
+  font-size: 48px;
+  font-weight: bold;
   padding: 16px;
 }
-=======
+
 .App {
   text-align: center;
 }
@@ -46,4 +44,3 @@
     transform: rotate(360deg);
   }
 }
->>>>>>> a83f6423f5bc738bca7694e36d5134681e513810
