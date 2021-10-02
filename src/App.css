@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+.react {
+
+  background: aqua;
+  color:black;
+  font-size:48px;
+  font-weight:bold;
+  padding: 16px;
+}
+=======
+>>>>>>> 65e9d1f518bad13771d99fe72e0651e397c5c6f2
 .App {
   text-align: center;
 }
@@ -36,3 +49,7 @@
     transform: rotate(360deg);
   }
 }
+<<<<<<< HEAD
+=======
+>>>>>>> a83f6423f5bc738bca7694e36d5134681e513810
+>>>>>>> 65e9d1f518bad13771d99fe72e0651e397c5c6f2
