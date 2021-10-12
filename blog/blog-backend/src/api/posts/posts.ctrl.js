@@ -44,6 +44,7 @@ export const write = async ctx => {
     title,
     body,
     tags,
+    user: ctx.state.user,
   });
   try {
     await post.save();
@@ -52,7 +53,6 @@ export const write = async ctx => {
     ctx.throw(500, e);
   }
 };
-
 /*
   GET /api/posts
 */
