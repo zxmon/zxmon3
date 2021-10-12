@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/common/Header';
 import { logout } from '../../modules/user';
 

@@ -25,6 +25,7 @@ function checkFailureSaga() {
     console.log('localStorage is not working');
   }
 }
+
 function* logoutSaga() {
     try {
       yield call(authAPI.logout); // logout API 호출
