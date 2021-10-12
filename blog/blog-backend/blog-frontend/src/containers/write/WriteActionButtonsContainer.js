@@ -30,7 +30,7 @@ const WriteActionButtonsContainer = ({ history }) => {
     history.goBack();
   };
 
-  // 성공 혹은 실패 시 할 작업
+  // 성공 혹은 실패시 할 작업
   useEffect(() => {
     if (post) {
       const { _id, user } = post;

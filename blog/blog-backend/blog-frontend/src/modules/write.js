@@ -37,6 +37,7 @@ const initialState = {
   post: null,
   postError: null,
 };
+
 const write = handleActions(
     {
       [INITIALIZE]: state => initialState, // initialState를 넣으면 초기 상태로 바뀜
