@@ -20,52 +20,52 @@ const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
 function checkFailureSaga() {
   try {
-    localStorage.removeItem('user'); // localStorage에서 user를 제거
+    localStorage.removeItem('user'); // localStorage 에서 user 제거하고
   } catch (e) {
     console.log('localStorage is not working');
   }
 }
 
 function* logoutSaga() {
-    try {
-      yield call(authAPI.logout); // logout API 호출
-      localStorage.removeItem('user'); // localStorage에서 user를 제거
-    } catch (e) {
-      console.log(e);
-    }
+  try {
+    yield call(authAPI.logout); // logout API 호출
+    localStorage.removeItem('user'); // localStorage 에서 user 제거
+  } catch (e) {
+    console.log(e);
   }
-  
-  export function* userSaga() {
-    yield takeLatest(CHECK, checkSaga);
-    yield takeLatest(CHECK_FAILURE, checkFailureSaga);
-    yield takeLatest(LOGOUT, logoutSaga);
-  }
-  
-  const initialState = {
-    user: null,
-    checkError: null,
-  };
-  
-  export default handleActions(
-    {
-      [TEMP_SET_USER]: (state, { payload: user }) => ({
-        ...state,
-        user,
-      }),
-      [CHECK_SUCCESS]: (state, { payload: user }) => ({
-        ...state,
-        user,
-        checkError: null,
-      }),
-      [CHECK_FAILURE]: (state, { payload: error }) => ({
-        ...state,
-        user: null,
-        checkError: error,
-      }),
-      [LOGOUT]: state => ({
-        ...state,
-        user: null,
-      }),
-    },
-    initialState,
-  );
+}
+
+export function* userSaga() {
+  yield takeLatest(CHECK, checkSaga);
+  yield takeLatest(CHECK_FAILURE, checkFailureSaga);
+  yield takeLatest(LOGOUT, logoutSaga);
+}
+
+const initialState = {
+  user: null,
+  checkError: null,
+};
+
+export default handleActions(
+  {
+    [TEMP_SET_USER]: (state, { payload: user }) => ({
+      ...state,
+      user,
+    }),
+    [CHECK_SUCCESS]: (state, { payload: user }) => ({
+      ...state,
+      user,
+      checkError: null,
+    }),
+    [CHECK_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      user: null,
+      checkError: error,
+    }),
+    [LOGOUT]: state => ({
+      ...state,
+      user: null,
+    }),
+  },
+  initialState,
+);

@@ -28,7 +28,7 @@ const initialState = {
 const post = handleActions(
   {
     [READ_POST_SUCCESS]: (state, { payload: post }) => ({
-        ...state,
+      ...state,
       post,
     }),
     [READ_POST_FAILURE]: (state, { payload: error }) => ({

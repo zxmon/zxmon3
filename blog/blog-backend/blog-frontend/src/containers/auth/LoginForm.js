@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, initializeForm, login } from '../../modules/auth';
@@ -12,7 +12,7 @@ const LoginForm = ({ history }) => {
     form: auth.login,
     auth: auth.auth,
     authError: auth.authError,
-    user: user.user
+    user: user.user,
   }));
   // 인풋 변경 이벤트 핸들러
   const onChange = e => {
@@ -21,8 +21,8 @@ const LoginForm = ({ history }) => {
       changeField({
         form: 'login',
         key: name,
-        value
-      })
+        value,
+      }),
     );
   };
 
@@ -33,7 +33,7 @@ const LoginForm = ({ history }) => {
     dispatch(login({ username, password }));
   };
 
-  // 컴포넌트가 처음 렌더링될 때 form을 초기화함
+  // 컴포넌트가 처음 렌더링 될 때 form 을 초기화함
   useEffect(() => {
     dispatch(initializeForm('login'));
   }, [dispatch]);
@@ -51,7 +51,6 @@ const LoginForm = ({ history }) => {
     }
   }, [auth, authError, dispatch]);
 
-  // 컴포넌트가 처음 렌더링될 때 form을 초기화함
   useEffect(() => {
     if (user) {
       history.push('/');

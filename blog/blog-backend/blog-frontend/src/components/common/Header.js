@@ -1,7 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 import Button from './Button';
-import { Link } from 'react-router-dom';
 
 const HeaderBlock = styled.div`
   position: fixed;
@@ -17,7 +18,7 @@ const Wrapper = styled(Responsive)`
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 자식 엘리먼트 사이의 여백을 최대로 설정 */
+  justify-content: space-between; /* 자식 엘리먼트 사이에 여백을 최대로 설정 */
   .logo {
     font-size: 1.125rem;
     font-weight: 800;
@@ -30,10 +31,10 @@ const Wrapper = styled(Responsive)`
 `;
 
 /**
- * 헤더가 fixed로 되어 있기 때문에 페이지의 콘텐츠가 4rem 아래에 나타나도록 해 주는 컴포넌트
+ * 헤더가 fixed로 되어 있기 때문에 페이지의 컨텐츠가 4rem 아래 나타나도록 해주는 컴포넌트
  */
 const Spacer = styled.div`
-height: 4rem;
+  height: 4rem;
 `;
 
 const UserInfo = styled.div`
@@ -42,28 +43,28 @@ const UserInfo = styled.div`
 `;
 
 const Header = ({ user, onLogout }) => {
-    return (
-      <>
-        <HeaderBlock>
-          <Wrapper>
-            <Link to="/" className="logo">
-              REACTERS
-            </Link>
-            {user ? (
-              <div className="right">
-                <UserInfo>{user.username}</UserInfo>
-                <Button onClick={onLogout}>로그아웃</Button>
-              </div>
-            ) : (
-              <div className="right">
-                <Button to="/login">로그인</Button>
-              </div>
-            )}
-          </Wrapper>
-        </HeaderBlock>
-        <Spacer />
-      </>
-    );
+  return (
+    <>
+      <HeaderBlock>
+        <Wrapper>
+          <Link to="/" className="logo">
+            REACTERS
+          </Link>
+          {user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button onClick={onLogout}>로그아웃</Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button to="/login">로그인</Button>
+            </div>
+          )}
+        </Wrapper>
+      </HeaderBlock>
+      <Spacer />
+    </>
+  );
 };
 
 export default Header;

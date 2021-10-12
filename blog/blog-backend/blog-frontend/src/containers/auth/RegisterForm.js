@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm, register } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
@@ -12,7 +12,7 @@ const RegisterForm = ({ history }) => {
     form: auth.register,
     auth: auth.auth,
     authError: auth.authError,
-    user: user.user
+    user: user.user,
   }));
   // 인풋 변경 이벤트 핸들러
   const onChange = e => {
@@ -21,8 +21,8 @@ const RegisterForm = ({ history }) => {
       changeField({
         form: 'register',
         key: name,
-        value
-      })
+        value,
+      }),
     );
   };
 
@@ -30,7 +30,7 @@ const RegisterForm = ({ history }) => {
   const onSubmit = e => {
     e.preventDefault();
     const { username, password, passwordConfirm } = form;
-    // 하나라도 비어 있다면
+    // 하나라도 비어있다면
     if ([username, password, passwordConfirm].includes('')) {
       setError('빈 칸을 모두 입력하세요.');
       return;
@@ -39,18 +39,20 @@ const RegisterForm = ({ history }) => {
     if (password !== passwordConfirm) {
       setError('비밀번호가 일치하지 않습니다.');
       dispatch(changeField({ form: 'register', key: 'password', value: '' }));
-      dispatch(changeField({ form: 'register', key: 'passwordConfirm', value: '' }));
+      dispatch(
+        changeField({ form: 'register', key: 'passwordConfirm', value: '' }),
+      );
       return;
     }
     dispatch(register({ username, password }));
   };
 
-  // 컴포넌트가 처음 렌더링될 때 form을 초기화함
+  // 컴포넌트가 처음 렌더링 될 때 form 을 초기화함
   useEffect(() => {
     dispatch(initializeForm('register'));
   }, [dispatch]);
 
-  // 회원가입 성공/실패 처리
+  // 회원가입 성공 / 실패 처리
   useEffect(() => {
     if (authError) {
       // 계정명이 이미 존재할 때
@@ -73,7 +75,7 @@ const RegisterForm = ({ history }) => {
   // user 값이 잘 설정되었는지 확인
   useEffect(() => {
     if (user) {
-      history.push('/');
+      history.push('/'); // 홈 화면으로 이동
       try {
         localStorage.setItem('user', JSON.stringify(user));
       } catch (e) {

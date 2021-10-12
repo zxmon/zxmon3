@@ -1,9 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { Link } from 'react-router-dom';
 
 /**
- * 회원가입/로그인 페이지의 레이아웃을 담당하는 컴포넌트입니다.
+ * 회원가입 / 로그인 페이지의 레이아웃을 담당하는 컴포넌트입니다.
  */
 
 /* 화면 전체를 채움 */
@@ -38,16 +39,16 @@ const WhiteBox = styled.div`
 `;
 
 const AuthTemplate = ({ children }) => {
-    return (
-        <AuthTemplateBlock>
-          <WhiteBox>
-            <div className="logo-area">
-              <Link to="/">REACTERS</Link>
-            </div>
-            {children}
-          </WhiteBox>
-        </AuthTemplateBlock>
-      );
-    };
-    
-    export default AuthTemplate;
+  return (
+    <AuthTemplateBlock>
+      <WhiteBox>
+        <div className="logo-area">
+          <Link to="/">REACTERS</Link>
+        </div>
+        {children}
+      </WhiteBox>
+    </AuthTemplateBlock>
+  );
+};
+
+export default AuthTemplate;
