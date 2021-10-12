@@ -91,7 +91,7 @@ const TagItem = React.memo(({ tag, onRemove }) => (
   
     const onRemove = useCallback(
       tag => {
-        const nextTags = localTags.filter(t => t != = tag);
+        const nextTags = localTags.filter(t => t !== tag);
         setLocalTags(nextTags);
         onChangeTags(nextTags);
       },
