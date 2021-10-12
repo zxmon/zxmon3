@@ -12,7 +12,9 @@ export const updatePost = ({ id, title, body, tags }) =>
     body,
     tags,
   });
-  
+
+export const removePost = id => client.delete(`/api/posts/${id}`);
+
 export const listPosts = ({ page, username, tag }) => {
   const queryString = qs.stringify({
     page,
