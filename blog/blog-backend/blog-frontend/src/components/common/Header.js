@@ -36,22 +36,34 @@ const Spacer = styled.div`
 height: 4rem;
 `;
 
-const Header = () => {
-    return (
-      <>
-        <HeaderBlock>
-          <Wrapper>
-            <Link to="/" className="logo">
-              REACTERS
-            </Link>
+const UserInfo = styled.div`
+  font-weight: 800;
+  margin-right: 1rem;
+`;
+
+const Header = ({ user }) => {
+  return (
+    <>
+      <HeaderBlock>
+        <Wrapper>
+          <Link to="/" className="logo">
+            REACTERS
+          </Link>
+          {user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button>로그아웃</Button>
+            </div>
+          ) : (
             <div className="right">
               <Button to="/login">로그인</Button>
             </div>
-          </Wrapper>
-        </HeaderBlock>
-        <Spacer />
+          )}
+        </Wrapper>
+      </HeaderBlock>
+      <Spacer />
       </>
-    );
-  };
-  
-  export default Header;
+  );
+};
+
+export default Header;
