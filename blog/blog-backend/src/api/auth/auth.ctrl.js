@@ -7,6 +7,12 @@ import User from '../../models/user';
   "username": "velopert",
   "password": "mypass123"
 }
+
+{
+    "username": "zxmon",
+    "_id": "61654873266ee950798a7ca8",
+    "__v": 0
+}
 */
 export const register = async ctx => {
   // Request Body 검증하기
